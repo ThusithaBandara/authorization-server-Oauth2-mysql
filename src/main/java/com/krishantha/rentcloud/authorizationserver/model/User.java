@@ -113,6 +113,7 @@ public class User {
 	@Column(name = "accountNonLocked")
 	private boolean accountNonLocked;
 	
+	//many to many relationship between user and role so we need to create another table for that store the user and role
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="role_user",joinColumns = {@JoinColumn(name="user_id",referencedColumnName ="id" )},inverseJoinColumns = {
 			@JoinColumn(name="role_id",referencedColumnName = "id")

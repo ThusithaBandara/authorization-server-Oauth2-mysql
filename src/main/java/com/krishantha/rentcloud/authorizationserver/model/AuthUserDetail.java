@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+//spring security provide interface userdetails and we have to implement unimplemented methoda 
+
 public class AuthUserDetail extends User implements UserDetails {
 	
 	
@@ -26,7 +28,7 @@ public class AuthUserDetail extends User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
+		//set the user authority
 		List<GrantedAuthority> grantedAuthority=new ArrayList<>();
 		
 		super.getRoles().forEach(role ->{

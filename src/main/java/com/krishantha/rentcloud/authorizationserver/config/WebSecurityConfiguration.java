@@ -16,11 +16,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	UserDetailsService userDetailsService;
 	
+	//Don't provide authentication manager in spring boot and need to create bean for that
+	//process and authenticate request
 	@Bean
 	protected AuthenticationManager getAuthenticationManager() throws Exception {
 		return super.authenticationManagerBean();
 	}
 
+	//these for password encodeing
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -28,6 +31,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		//use userdetailsservice and check the password from here
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 	
