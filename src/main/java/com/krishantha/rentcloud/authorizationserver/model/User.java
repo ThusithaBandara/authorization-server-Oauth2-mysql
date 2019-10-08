@@ -1,5 +1,6 @@
 package com.krishantha.rentcloud.authorizationserver.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
 	public User() {
 		
